@@ -1,16 +1,22 @@
 package com.techlab;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import com.techlab.excepciones.SoloNumerosException;
 import com.techlab.excepciones.PedidoInvalidoException;
 import com.techlab.excepciones.NumInvalException;
 import com.techlab.excepciones.ProductoNoEncontradoException;
+import com.techlab.productos.Producto;
+import com.techlab.servicio.ProductoService;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
 
+        List<Producto> productos = new ArrayList<Producto>();
+        ProductoService prodService = new ProductoService();
         do {
             try {
                 System.out.println("\n========= MENÚ =========");
@@ -46,13 +52,16 @@ public class Main {
 
             } catch (SoloNumerosException e) {
                 System.out.println("❌ Error: " + e.getMessage());
-                sc.nextLine(); // limpiar entrada inválida
+                sc.nextLine(); // limpiar entrada inválidsc.nextLine();
             } catch (ProductoNoEncontradoException e) {
                 System.out.println("❌ Error: " + e.getMessage());
+                sc.nextLine();
             } catch (PedidoInvalidoException e) {
                 System.out.println("❌ Error: " + e.getMessage());
+                sc.nextLine();
             } catch (NumInvalException e) {
                 System.out.println("❌ Error: " + e.getMessage());
+                sc.nextLine();
             }
 
         } while (opcion != 8);
