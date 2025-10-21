@@ -39,7 +39,11 @@ public class Main {
                 sc.nextLine(); // limpiar el salto de línea
 
                 switch (opcion) {
-                    case 1 -> System.out.println("→ Agregando producto...");
+                    case 1 ->{
+                        System.out.println("→ Agregando producto...");
+                        prodService.agregarProducto(sc, productos);
+
+                       break;}
                     case 2 -> System.out.println("→ Listando productos...");
                     case 3 -> System.out.println("→ Buscando producto...");
                     case 4 -> System.out.println("→ Actualizando producto...");
